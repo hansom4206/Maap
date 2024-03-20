@@ -25,76 +25,35 @@
         }
 
         map {
-                    display: block;
-                    margin: 0 auto;
-            }
-
-    area {
-            outline: none;
-            cursor: pointer;
-         }
-
-
-     /*   .red-dot {
-            position: absolute;
-            background-color: red;
-            width: 1vw;
-            height: 1vw;
-            border-radius: 50%;
-            pointer-events: none;
-            left: 53%;
-            top: 82%;
-            transform: translate(-50%, -50%);
-        }  
-
-        #coordinates-input {
-            margin-top: 10px;
-            text-align: center;
-        }
-
-        #coordinates-input {
-            position: absolute;
-            bottom: 20px;
-            left: 50%;
-            transform: translateX(-50%);
-        }
-
-        #move-button {
-            margin-top: 10px;
             display: block;
             margin: 0 auto;
         }
 
-*/
+        area {
+            outline: none;
+            cursor: pointer;
+        }
 
+        @media (min-width: 720px) {
+            .image-container {
+                max-width: 100vw;
+            }
+        }
 </style>
 </head>
 <body>
 
-<h1>台北101 B1平面圖(例)</h1>
     <div class="image-container">
-        <img src="demo5.png" alt="圖片描述" usemap="#image-map">
+        <img src="demo5.png" alt="底圖" usemap="#image-map">
         <div class="red-dot" id="red-dot"></div>
     </div>
-<!--
-    <div id="coordinates-input">
-        <label for="x-coordinate">X座標：</label>
-        <input type="text" id="x-coordinate" placeholder="輸入X座標">
-        <br>
-        <label for="y-coordinate">Y座標：</label>
-        <input type="text" id="y-coordinate" placeholder="輸入Y座標">
-        <br>
-        <button id="move-button">移動紅點</button>
+
+    <div class="image-container" style="top: 140px; left: 510px;" draggable="true" ondragstart="drag(event)">
+        <a href="https://www.emporio-armani.com.tw/">
+            <img src="armani1.jpg" alt="armani">
+        </a>
     </div>
--->
-
-<div class="image-container" style="top: 140px; left: 510px;" draggable="true" ondragstart="drag(event)">
-  <a href="https://www.emporio-armani.com.tw/">
-    <img src="armani1.jpg" alt="armani">
-  </a>
-</div>
-
-<div class="image-container" style="top: 220px; left: 510px;" draggable="true" ondragstart="drag(event)">
+    <div class="image-container" style="top: 220px; left: 510px;" draggable="true" ondragstart="drag(event)">
   <a href="https://consumer.huawei.com/tw/phones/">
     <img src="huawei1.jpg" alt="huawei">
   </a>
@@ -160,25 +119,27 @@
   </a>
 </div>
 
-<script>
-  function drag(event) {
-    event.dataTransfer.setData("text", event.target.id);
-  }
+    <!-- 其他圖片位置的定位 -->
 
-  document.addEventListener("dragover", function(event) {
-    event.preventDefault();
-  });
+    <script>
+        function drag(event) {
+            event.dataTransfer.setData("text", event.target.id);
+        }
 
-  document.addEventListener("drop", function(event) {
-    event.preventDefault();
-    var data = event.dataTransfer.getData("text");
-    var draggedElement = document.getElementById(data);
-    var offsetX = event.clientX - draggedElement.clientWidth / 2;
-    var offsetY = event.clientY - draggedElement.clientHeight / 2;
-    draggedElement.style.left = offsetX + "px";
-    draggedElement.style.top = offsetY + "px";
-  });
-</script>
+        document.addEventListener("dragover", function(event) {
+            event.preventDefault();
+        });
+
+        document.addEventListener("drop", function(event) {
+            event.preventDefault();
+            var data = event.dataTransfer.getData("text");
+            var draggedElement = document.getElementById(data);
+            var offsetX = event.clientX - draggedElement.clientWidth / 2;
+            var offsetY = event.clientY - draggedElement.clientHeight / 2;
+            draggedElement.style.left = offsetX + "px";
+            draggedElement.style.top = offsetY + "px";
+        });
+    </script>
 
 </body>
 </html>

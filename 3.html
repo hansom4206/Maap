@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>底圖</title>
+<style>
+    body, html {
+        height: 100%;
+        margin: 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .container {
+        position: relative;
+    }
+
+    .base-image {
+        width: 100%; /* 或者根據需要設置具體的寬度 */
+        height: auto; /* 讓圖片按比例縮放 */
+    }
+
+    .overlay {
+        position: absolute;
+        top: 95%; /* 將其設置為底圖的正下方，再上移30% */
+        left: 65%;
+        transform: translate(-50%, -100%);
+    }
+
+    /* 新增的超連結圖片樣式 */
+    .image-container {
+        margin-top: 10px; /* 垂直間距 */
+    }
+</style>
+</head>
+<body>
+
+<div class="container">
+    <img class="base-image" src="demo5.png" alt="底圖">
+
+    <!-- 在底圖下方放置其他元素 -->
+    <div class="overlay">
+        <a href="https://www.gucci.com/hk/zh_hk/">
+            <img src="gucci1.jpg" alt="gucci">
+        </a>
+        <!-- 新增的超連結圖片 -->
+        <div class="image-container">
+            <a href="ttps://www.adidas.com.tw/">
+                <img src="adidas1.jpg" alt="adidas">
+            </a>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>
